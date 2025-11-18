@@ -1,0 +1,211 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ meal.meal_name }} - Recipe & Meal Planner</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        .detail-container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: white;
+            border-radius: 1rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .detail-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 1.5rem;
+        }
+        
+        .detail-header h1 {
+            color: #15803d;
+            margin: 0;
+            font-size: 2rem;
+        }
+        
+        .detail-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .info-card {
+            background: #f8fafc;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            border-left: 4px solid #16a34a;
+        }
+        
+        .info-label {
+            color: #64748b;
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+        
+        .info-value {
+            color: #334155;
+            font-size: 1.125rem;
+            font-weight: 600;
+        }
+        
+        .description-section {
+            margin-bottom: 2rem;
+        }
+        
+        .description-section h3 {
+            color: #15803d;
+            margin-bottom: 1rem;
+        }
+        
+        .description-section p {
+            color: #475569;
+            line-height: 1.6;
+            white-space: pre-wrap;
+        }
+        
+        .status-badge {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+        
+        .status-completed {
+            background-color: #dcfce7;
+            color: #166534;
+        }
+        
+        .status-pending {
+            background-color: #fef3c7;
+            color: #92400e;
+        }
+        
+        .action-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary {
+            background-color: #16a34a;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color: #15803d;
+        }
+        
+        .btn-secondary {
+            background-color: #3b82f6;
+            color: white;
+        }
+        
+        .btn-secondary:hover {
+            background-color: #1d4ed8;
+        }
+        
+        .btn-danger {
+            background-color: #ef4444;
+            color: white;
+        }
+        
+        .btn-danger:hover {
+            background-color: #dc2626;
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            color: #334155;
+            border: 1px solid #cbd5e1;
+        }
+        
+        .btn-outline:hover {
+            background-color: #f1f5f9;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar-brand">
+            <img src="{% static 'images/logo.png' %}" alt="Recipe & Meal Planner Logo" class="navbar-logo">
+            <span class="navbar-title">Recipe & Meal Planner</span>
+        </div>
+        <ul class="navbar-links">
+            <li><a href="{% url 'index' %}#recipes">Recipes</a></li>
+            <li><a href="{% url 'meal_list' %}">Meal Planner</a></li>
+            <li><a href="{% url 'about' %}">About Us</a></li>
+        </ul>
+    </nav>
+
+    <div class="detail-container">
+        <div class="detail-header">
+            <div>
+                <h1>{{ meal.meal_name }}</h1>
+                <span class="status-badge {% if meal.is_completed %}status-completed{% else %}status-pending{% endif %}">
+                    {% if meal.is_completed %}Completed{% else %}Pending{% endif %}
+                </span>
+            </div>
+        </div>
+
+        <div class="detail-info">
+            <div class="info-card">
+                <div class="info-label">Day of Week</div>
+                <div class="info-value">{{ meal.get_day_display }}</div>
+            </div>
+            <div class="info-card">
+                <div class="info-label">Created</div>
+                <div class="info-value">{{ meal.created_at|date:"M d, Y" }}</div>
+            </div>
+            <div class="info-card">
+                <div class="info-label">Last Updated</div>
+                <div class="info-value">{{ meal.updated_at|date:"M d, Y H:i" }}</div>
+            </div>
+        </div>
+
+        {% if meal.description %}
+        <div class="description-section">
+            <h3>Description</h3>
+            <p>{{ meal.description }}</p>
+        </div>
+        {% endif %}
+
+        <div class="action-buttons">
+            <a href="{% url 'meal_edit' meal.pk %}" class="btn btn-secondary">Edit Meal</a>
+            <a href="{% url 'meal_toggle' meal.pk %}" class="btn btn-primary">
+                {% if meal.is_completed %}Mark as Pending{% else %}Mark as Completed{% endif %}
+            </a>
+            <a href="{% url 'meal_delete' meal.pk %}" class="btn btn-danger">Delete Meal</a>
+            <a href="{% url 'meal_list' %}" class="btn btn-outline">Back to List</a>
+        </div>
+    </div>
+</body>
+</html>

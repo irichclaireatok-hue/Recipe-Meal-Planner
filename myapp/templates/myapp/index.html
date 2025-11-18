@@ -1,0 +1,245 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recipe & Meal Planner</title>
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+  <div class="navbar-brand">
+    <img src="{% static 'images/logo.png' %}" alt="Recipe & Meal Planner Logo" class="navbar-logo">
+    <span class="navbar-title">Recipe & Meal Planner</span>
+  </div>
+
+    <ul class="navbar-links">
+      <li><a href="#recipes">Recipes</a></li>
+      <li><a href="#meal-planner">Meal Planner</a></li>
+      <li><a href="{% url 'about' %}">About Us</a></li>
+    </ul>
+  </nav>
+
+  <header class="header-desc">
+    <p>Plan your meals and explore new recipes</p>
+  </header>
+
+  <!-- Search Bar -->
+  <div style="max-width: 40rem; margin: 0 auto 2.5rem auto;">
+    <input id="searchInput" type="text" placeholder="Search recipes...">
+  </div>
+
+  <!-- Recipe Section -->
+  <section id="recipes">
+    <h2>Recipes</h2>
+    
+    <!-- Breakfast Section -->
+    <div class="category-section">
+      <h3 class="category-title">Breakfast</h3>
+      <div class="category-recipes">
+        <div class="recipe-card" data-category="breakfast" data-title="Vegetable Omelette" data-description="Fluffy omelette packed with fresh vegetables." data-calories="~250 kcal" data-ingredients="Eggs,Spinach,Tomatoes,Onion" data-steps="Beat eggs and pour into pan.,Add chopped vegetables.,Cook until set and fold.">
+          <img src="{% static 'images/vegetable-omelette.jpg' %}" alt="Vegetable Omelette" class="recipe-image">
+          <h3>Vegetable Omelette</h3>
+          <p>Fluffy omelette packed with fresh vegetables.</p>
+          <div class="calories">~250 kcal</div>
+        </div>
+        <div class="recipe-card" data-category="breakfast" data-title="Sunny Avocado Toast with Eggs" data-description="A nutritious and satisfying breakfast combining creamy avocado with perfectly fried eggs on toasted bread." data-calories="~480 kcal" data-ingredients="2 slices of bread (toasted),2 eggs,½ avocado sliced,Cherry tomatoes halved,Salt and black pepper,Fresh herbs (parsley or cilantro),Olive oil or butter" data-steps="Toast the bread until golden brown.,Heat a pan with a little oil or butter and fry the eggs sunny-side up.,Season eggs with salt pepper and chopped herbs.,Arrange avocado slices and cherry tomatoes on the plate.,Place the eggs on top of the toast and serve warm.">
+          <img src="{% static 'images/breakfast_1.jpg' %}" alt="Sunny Avocado Toast with Eggs" class="recipe-image">
+          <h3>Sunny Avocado Toast with Eggs</h3>
+          <p>A nutritious and satisfying breakfast combining creamy avocado with perfectly fried eggs on toasted bread.</p>
+          <div class="calories">~480 kcal</div>
+        </div>
+        <div class="recipe-card" data-category="breakfast" data-title="Peanut Butter Banana & Strawberry Toast" data-description="A sweet and nutritious breakfast toast topped with peanut butter, fresh fruits, and optional honey and seeds." data-calories="~475 kcal" data-ingredients="2 slices of bread (toasted),2 tablespoons peanut butter,1 banana sliced,3-4 strawberries sliced,1 teaspoon honey (optional),Chia seeds or shredded coconut (optional for topping)" data-steps="Toast the bread slices until golden brown.,Spread a layer of peanut butter evenly on each slice.,Arrange banana and strawberry slices on top.,Drizzle with honey if desired.,Sprinkle chia seeds or coconut flakes for extra texture and flavor.,Serve immediately and enjoy!">
+          <img src="{% static 'images/breakfast_2.jpg' %}" alt="Peanut Butter Banana & Strawberry Toast" class="recipe-image">
+          <h3>Peanut Butter Banana & Strawberry Toast</h3>
+          <p>A sweet and nutritious breakfast toast topped with peanut butter, fresh fruits, and optional honey and seeds.</p>
+          <div class="calories">~475 kcal</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Lunch Section -->
+    <div class="category-section">
+      <h3 class="category-title">Lunch</h3>
+      <div class="category-recipes">
+        <div class="recipe-card" data-category="lunch" data-title="Grilled Chicken Salad" data-description="A healthy mix of grilled chicken, fresh greens, and vinaigrette." data-calories="~350 kcal" data-ingredients="Chicken breast,Lettuce,Tomatoes,Vinaigrette" data-steps="Grill the chicken until cooked.,Chop vegetables and mix with chicken.,Top with vinaigrette.">
+          <img src="{% static 'images/grilled-chicken-salad.jpg' %}" alt="Grilled Chicken Salad" class="recipe-image">
+          <h3>Grilled Chicken Salad</h3>
+          <p>A healthy mix of grilled chicken, fresh greens, and vinaigrette.</p>
+          <div class="calories">~350 kcal</div>
+        </div>
+
+        <div class="recipe-card" data-category="lunch" data-title="Quinoa Salad" data-description="Nutritious salad with quinoa, veggies, and lemon dressing." data-calories="~300 kcal" data-ingredients="Quinoa,Cucumber,Cherry tomatoes,Lemon juice" data-steps="Cook quinoa and let cool.,Mix with chopped veggies.,Add lemon juice and toss.">
+          <img src="{% static 'images/quinoa-salad.jpg' %}" alt="Quinoa Salad" class="recipe-image">
+          <h3>Quinoa Salad</h3>
+          <p>Nutritious salad with quinoa, veggies, and lemon dressing.</p>
+          <div class="calories">~300 kcal</div>
+        </div>
+
+        <div class="recipe-card" data-category="lunch" data-title="Fish Tacos" data-description="Grilled fish in tortillas with fresh slaw and sauce." data-calories="~450 kcal" data-ingredients="White fish fillets,Tortillas,Cabbage,Sour cream" data-steps="Grill fish and flake.,Fill tortillas with fish and slaw.,Top with sauce.">
+          <img src="{% static 'images/fish-tacos.jpg' %}" alt="Fish Tacos" class="recipe-image">
+          <h3>Fish Tacos</h3>
+          <p>Grilled fish in tortillas with fresh slaw and sauce.</p>
+          <div class="calories">~450 kcal</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dinner Section -->
+    <div class="category-section">
+      <h3 class="category-title">Dinner</h3>
+      <div class="category-recipes">
+        <div class="recipe-card" data-category="dinner" data-title="Pasta Primavera" data-description="Fresh veggies tossed with pasta and light olive oil sauce." data-calories="~400 kcal" data-ingredients="Pasta,Broccoli,Carrots,Olive oil" data-steps="Boil pasta.,Saute vegetables.,Mix pasta with veggies and drizzle olive oil.">
+          <img src="{% static 'images/pasta-primavera.jpg' %}" alt="Pasta Primavera" class="recipe-image">
+          <h3>Pasta Primavera</h3>
+          <p>Fresh veggies tossed with pasta and light olive oil sauce.</p>
+          <div class="calories">~400 kcal</div>
+        </div>
+
+        <div class="recipe-card" data-category="dinner" data-title="Beef Stir Fry" data-description="Quick stir-fried beef with colorful vegetables and soy sauce." data-calories="~450 kcal" data-ingredients="Beef strips,Bell peppers,Broccoli,Soy sauce" data-steps="Stir fry beef until browned.,Add vegetables and cook until tender.,Add soy sauce and mix well.">
+          <img src="{% static 'images/beef-stir-fry.jpg' %}" alt="Beef Stir Fry" class="recipe-image">
+          <h3>Beef Stir Fry</h3>
+          <p>Quick stir-fried beef with colorful vegetables and soy sauce.</p>
+          <div class="calories">~450 kcal</div>
+        </div>
+
+        <div class="recipe-card" data-category="dinner" data-title="Chicken Curry" data-description="Spicy and flavorful chicken curry with rice." data-calories="~600 kcal" data-ingredients="Chicken pieces,Curry powder,Coconut milk,Rice" data-steps="Cook chicken with curry powder.,Add coconut milk and simmer.,Serve with rice.">
+          <img src="{% static 'images/chicken-curry.jpg' %}" alt="Chicken Curry" class="recipe-image">
+          <h3>Chicken Curry</h3>
+          <p>Spicy and flavorful chicken curry with rice.</p>
+          <div class="calories">~600 kcal</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- Popup Modal -->
+<div id="recipeModal" class="modal">
+  <div class="modal-content landscape">
+    <span id="closeModal">&times;</span>
+
+    <div class="modal-body">
+      <div class="modal-left">
+        <img id="modalImage" src="" alt="Recipe Image">
+      </div>
+      <div class="modal-right">
+        <h3 id="modalTitle"></h3>
+        <p id="modalDescription"></p>
+        <div id="modalCalories" class="calories"></div>
+        <h4>Ingredients:</h4>
+        <ul id="modalIngredients"></ul>
+        <h4>Steps:</h4>
+        <ol id="modalSteps"></ol>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <!-- Meal Planner -->
+  <section id="meal-planner" class="mt-12">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+      <h2>Weekly Meal Planner</h2>
+      <a href="{% url 'meal_create' %}" style="background-color: #16a34a; color: white; padding: 0.75rem 1.5rem; border-radius: 0.5rem; text-decoration: none; font-weight: 600;">+ Add Meal</a>
+    </div>
+    
+    {% if meals %}
+    <div class="meal-grid">
+      {% for meal in meals %}
+      <div class="meal-day" style="position: relative;">
+        <h3>{{ meal.get_day_display }}</h3>
+        <p><strong>{{ meal.meal_name }}</strong></p>
+        {% if meal.description %}
+        <p style="font-size: 0.875rem; color: #64748b; margin: 0.5rem 0;">{{ meal.description|truncatewords:10 }}</p>
+        {% endif %}
+        <label style="display: flex; align-items: center; gap: 0.5rem; margin-top: 0.75rem;">
+          <input type="checkbox" class="meal-check" {% if meal.is_completed %}checked{% endif %} data-meal-id="{{ meal.id }}"> 
+          <span>{% if meal.is_completed %}Done{% else %}Pending{% endif %}</span>
+        </label>
+        <div style="display: flex; gap: 0.5rem; margin-top: 1rem; flex-wrap: wrap;">
+          <a href="{% url 'meal_detail' meal.pk %}" style="background-color: #3b82f6; color: white; padding: 0.4rem 0.8rem; border-radius: 0.375rem; text-decoration: none; font-size: 0.875rem;">View</a>
+          <a href="{% url 'meal_edit' meal.pk %}" style="background-color: #8b5cf6; color: white; padding: 0.4rem 0.8rem; border-radius: 0.375rem; text-decoration: none; font-size: 0.875rem;">Edit</a>
+          <a href="{% url 'meal_delete' meal.pk %}" style="background-color: #ef4444; color: white; padding: 0.4rem 0.8rem; border-radius: 0.375rem; text-decoration: none; font-size: 0.875rem;">Delete</a>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    {% else %}
+    <div style="text-align: center; padding: 3rem 1rem; background: #f8fafc; border-radius: 0.5rem;">
+      <p style="color: #64748b; margin-bottom: 1rem;">No meals planned yet. Start by adding your first meal!</p>
+      <a href="{% url 'meal_create' %}" style="background-color: #16a34a; color: white; padding: 0.75rem 1.5rem; border-radius: 0.5rem; text-decoration: none; font-weight: 600; display: inline-block;">+ Add Your First Meal</a>
+    </div>
+    {% endif %}
+    
+    <div style="text-align: center; margin-top: 2rem;">
+      <a href="{% url 'meal_list' %}" style="color: #16a34a; text-decoration: none; font-weight: 600;">View Full Meal Planner →</a>
+    </div>
+  </section>
+
+  <!-- JavaScript -->
+  <script>
+    // Modal popup behavior
+    const modal = document.getElementById("recipeModal");
+    const closeModal = document.getElementById("closeModal");
+    const modalImage = document.getElementById("modalImage");
+    const modalTitle = document.getElementById("modalTitle");
+    const modalDescription = document.getElementById("modalDescription");
+    const modalCalories = document.getElementById("modalCalories");
+    const modalIngredients = document.getElementById("modalIngredients");
+    const modalSteps = document.getElementById("modalSteps");
+
+    document.querySelectorAll(".recipe-card").forEach(card => {
+      card.addEventListener("click", () => {
+        modalImage.src = card.querySelector("img").src;
+        modalTitle.textContent = card.dataset.title;
+        modalDescription.textContent = card.dataset.description;
+        modalCalories.textContent = card.dataset.calories;
+
+        modalIngredients.innerHTML = "";
+        card.dataset.ingredients.split(",").forEach(ing => {
+          const li = document.createElement("li");
+          li.textContent = ing.trim();
+          modalIngredients.appendChild(li);
+        });
+
+        modalSteps.innerHTML = "";
+        card.dataset.steps.split(",").forEach(step => {
+          const li = document.createElement("li");
+          li.textContent = step.trim();
+          modalSteps.appendChild(li);
+        });
+
+        modal.style.display = "block";
+      });
+    });
+
+    closeModal.onclick = () => modal.style.display = "none";
+    window.onclick = e => { if (e.target == modal) modal.style.display = "none"; };
+
+    // Meal planner checkboxes
+    document.querySelectorAll('.meal-check').forEach((checkbox, idx) => {
+      const checked = localStorage.getItem('meal-check-' + idx) === 'true';
+      checkbox.checked = checked;
+      checkbox.addEventListener('change', function() {
+        localStorage.setItem('meal-check-' + idx, this.checked);
+      });
+    });
+
+    // Search filter
+    const searchInput = document.getElementById("searchInput");
+    const recipeCards = document.querySelectorAll(".recipe-card");
+    searchInput.addEventListener("input", () => {
+      const query = searchInput.value.toLowerCase();
+      recipeCards.forEach(card => {
+        const text = card.innerText.toLowerCase();
+        card.style.display = text.includes(query) ? "block" : "none";
+      });
+    });
+  </script>
+</body>
+</html>

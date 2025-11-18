@@ -1,0 +1,197 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us - Recipe & Meal Planner</title>
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    .about-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+      background: #fff;
+      border-radius: 1rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+      margin-bottom: 2rem;
+    }
+
+    .about-header {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+
+    .about-header h1 {
+      color: #15803d;
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .about-header p {
+      color: #64748b;
+      font-size: 1.2rem;
+      max-width: 800px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    .about-section {
+      margin-bottom: 3rem;
+    }
+
+    .about-section h2 {
+      color: #16a34a;
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid #e2e8f0;
+    }
+
+    .about-section p {
+      color: #334155;
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .team-member {
+      text-align: center;
+      padding: 1.5rem;
+      background: #f8fafc;
+      border-radius: 1rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .team-member:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+
+    .team-member img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 1rem;
+      border: 4px solid #fff;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .team-member h3 {
+      color: #15803d;
+      margin: 0.5rem 0;
+    }
+
+    .team-member p.role {
+      color: #64748b;
+      font-style: italic;
+      margin-bottom: 1rem;
+    }
+
+    .values-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .value-card {
+      background: #f8fafc;
+      padding: 1.5rem;
+      border-radius: 0.75rem;
+      border-left: 4px solid #4ade80;
+    }
+
+    .value-card h3 {
+      color: #15803d;
+      margin-top: 0;
+      margin-bottom: 0.75rem;
+    }
+
+    @media (max-width: 768px) {
+      .about-container {
+        padding: 1rem;
+      }
+      
+      .team-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .values-list {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <img src="{% static 'images/logo.png' %}" alt="Recipe & Meal Planner Logo" class="navbar-logo">
+      <span class="navbar-title">Recipe & Meal Planner</span>
+    </div>
+    <ul class="navbar-links">
+      <li><a href="{% url 'index' %}#recipes">Recipes</a></li>
+      <li><a href="{% url 'index' %}#meal-planner">Meal Planner</a></li>
+      <li><a href="{% url 'about' %}" class="active">About Us</a></li>
+    </ul>
+  </nav>
+
+  <div class="about-container">
+    <header class="about-header">
+      <h1>About Recipe & Meal Planner</h1>
+      <p>Making meal planning simple, healthy, and enjoyable for everyone</p>
+    </header>
+
+    <section class="about-section">
+      <h2>Our Story</h2>
+      <p>Founded in 2025, Recipe & Meal Planner was born out of a simple idea: meal planning should be easy, enjoyable, and accessible to everyone. Our team of food enthusiasts, nutritionists, and tech experts came together to create a platform that helps people make better food choices while saving time and reducing food waste.</p>
+      <p>What started as a small project has grown into a community of thousands of home cooks who share our passion for good food and healthy living. We're committed to providing you with delicious, nutritious recipes and powerful planning tools to make your meal prep a breeze.</p>
+    </section>
+
+    <section class="about-section">
+      <h2>Our Mission</h2>
+      <p>At Recipe & Meal Planner, we believe that eating well shouldn't be complicated. Our mission is to:</p>
+      <ul class="values-list">
+        <li class="value-card">
+          <h3>Simplify Meal Planning</h3>
+          <p>We make it easy to plan your meals for the week with our intuitive tools and customizable meal plans.</p>
+        </li>
+        <li class="value-card">
+          <h3>Promote Healthy Eating</h3>
+          <p>Our recipes are designed to be both delicious and nutritious, helping you maintain a balanced diet.</p>
+        </li>
+        <li class="value-card">
+          <h3>Reduce Food Waste</h3>
+          <p>By planning your meals in advance, you'll buy only what you need and use what you buy.</p>
+        </li>
+      </ul>
+    </section>
+
+    <section class="about-section">
+      <h2>Join Our Community</h2>
+      <p>We're more than just a recipe website – we're a community of food lovers who believe in the power of home cooking. Join us on social media to share your creations, get inspired, and connect with fellow food enthusiasts.</p>
+      <p>Have questions or feedback? We'd love to hear from you! Contact us at <a href="mailto:hello@recipeplanner.com" style="color: #15803d; text-decoration: none;">hello@recipeplanner.com</a>.</p>
+    </section>
+  </div>
+
+  <script>
+    // Add active class to current page in navigation
+    document.querySelectorAll('.navbar-links a').forEach(link => {
+      if (link.href === window.location.href) {
+        link.classList.add('active');
+      }
+    });
+  </script>
+</body>
+</html>
