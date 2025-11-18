@@ -3,7 +3,8 @@
 
 /* Global styles */
 body {
-  background: #F0F0F0;
+  background: #F6FBF3;
+
   min-height: 100vh;
   padding: 1.5rem;
   font-family: "Noto Sans", sans-serif;
@@ -19,12 +20,12 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: #ffffff;
+  background: linear-gradient(120deg, #ffffff 65%, #f0f9ed);
   padding: 1.2rem 2rem 1.2rem 1.2rem;
-  box-shadow: 0 2px 8px rgba(150, 167, 141, 0.1);
+  box-shadow: 0 4px 14px rgba(93, 129, 94, 0.14);
   border-radius: 0 0 1.2rem 1.2rem;
   margin-bottom: 1.5rem;
-  border: 1px solid #D9E9CF;
+  border: 1px solid #B7D9B1;
 }
 
 .navbar-brand {
@@ -43,7 +44,7 @@ body {
 .navbar-title {
   font-size: 2rem;
   font-weight: 700;
-  color: #96A78D;
+  color: #3D6B41;
   letter-spacing: 0.01em;
 }
 
@@ -57,14 +58,14 @@ body {
 
 .navbar-links a {
   text-decoration: none;
-  color: #96A78D;
+  color: #4F7B56;
   font-weight: 500;
   font-size: 1.08rem;
   transition: color 0.2s;
 }
 
 .navbar-links a:hover {
-  color: #B6CEB4;
+  color: #2D5936;
   text-decoration: underline;
 }
 
@@ -75,7 +76,7 @@ body {
 }
 
 .header-desc p {
-  color: #64748b;
+  color: #3B4C63;
   margin-top: 0.5rem;
   font-size: 1.2rem;
 }
@@ -85,16 +86,17 @@ body {
   width: 100%;
   padding: 0.75rem;
   border-radius: 0.5rem;
-  border: 1px solid #D9E9CF;
+  border: 1px solid #B7D9B1;
   outline: none;
   transition: box-shadow 0.2s;
   font-size: 1rem;
   box-sizing: border-box;
+  background: #ffffff;
 }
 
 #searchInput:focus {
-  box-shadow: 0 0 0 2px #B6CEB4;
-  border-color: #B6CEB4;
+  box-shadow: 0 0 0 2px #92C28F;
+  border-color: #92C28F;
 }
 
 /* Category Sections */
@@ -105,10 +107,10 @@ body {
 .category-title {
   font-size: 1.5rem;
   font-weight: 600;
-  color: #96A78D;
+  color: #3D6B41;
   margin-bottom: 1rem;
   padding-bottom: 0.5rem;
-  border-bottom: 2px solid #D9E9CF;
+  border-bottom: 2px solid #B7D9B1;
 }
 
 .category-recipes {
@@ -132,7 +134,7 @@ body {
 /* Recipe Card */
 .recipe-card {
   background: #fff;
-  box-shadow: 0 2px 8px rgba(150, 167, 141, 0.1);
+  box-shadow: 0 2px 8px rgba(93, 129, 94, 0.12);
   border-radius: 1rem;
   padding: 0.5rem;
   display: flex;
@@ -140,13 +142,13 @@ body {
   align-items: stretch;
   transition: box-shadow 0.2s, transform 0.2s;
   cursor: pointer;
-  border: 1px solid #D9E9CF;
+  border: 1px solid #C6E3C6;
 }
 
 .recipe-card:hover {
-  box-shadow: 0 4px 16px rgba(150, 167, 141, 0.2);
+  box-shadow: 0 6px 20px rgba(93, 129, 94, 0.2);
   transform: translateY(-2px) scale(1.01);
-  border-color: #B6CEB4;
+  border-color: #92C28F;
 }
 
 .recipe-card img {
